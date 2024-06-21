@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Admission Form</title>
+  <style>
+    
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>School Admission Form</h2>
+    <form id="admissionForm" action="#" method="post" onsubmit="return validateForm()">
+      <label for="name">Sudent Name:</label>
+      <input type="text" id="name" name="name" required>
+      <div id="nameError" class="error-message"></div>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <div id="emailError" class="error-message"></div>
+
+      <label for="grade">Grade Applying For:</label>
+      <select id="grade" name="grade" required>
+        <option value="">Select Grade</option>
+        <option value="1">Nursery</option>
+        <option value="1">Jr.K.G</option>
+        <option value="2">Sr.K.G</option>
+        <option value="3">Grade I</option>
+        <option value="3">Grade II</option>
+        <option value="3">Grade III</option>
+        <option value="3">Grade IV</option>
+        <option value="3">Grade V</option>
+        <option value="3">Grade VI</option>
+        <option value="3">Grade VII</option>
+        <option value="3">Grade VIII</option>
+        <option value="3">Grade IX</option>
+        <option value="3">Grade X</option>
+
+
+        <!-- Add more options as needed -->
+      </select>
+      <div id="gradeError" class="error-message"></div>
+
+      <button type="submit">Submit Application</button>
+      <p>*Fields are mandatory</p>
+
+    </form>
+  </div>
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var grade = document.getElementById("grade").value;
+      var isValid = true;
+
+      if (name.trim() === "") {
+        document.getElementById("nameError").innerText = "Please enter your full name";
+        isValid = false;
+      } else {
+        document.getElementById("nameError").innerText = "";
+      }
+
+      if (email.trim() === "") {
+        document.getElementById("emailError").innerText = "Please enter your email";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").innerText = "";
+      }
+
+      if (grade === "") {
+        document.getElementById("gradeError").innerText = "Please select the grade applying for";
+        isValid = false;
+      } else {
+        document.getElementById("gradeError").innerText = "";
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>
+
